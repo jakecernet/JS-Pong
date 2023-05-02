@@ -183,9 +183,6 @@ function runGame() {
     draw();
 }
 
-// Run game every 30 milliseconds
-setInterval(runGame, 30);
-
 // Listen for keydown events
 document.addEventListener('keydown', function (event) {
     if (event.key === 'w') {
@@ -222,3 +219,12 @@ function updateScore() {
     document.getElementById('player1Score').innerHTML = player1Score;
     document.getElementById('player2Score').innerHTML = player2Score;
 }
+
+//listen for button click
+document.getElementById('start').addEventListener('click', function () {
+    setInterval(runGame, 50);
+    setInterval(updateScore, 1000 / 60);
+    document.getElementById('start').style.display = 'none';
+    document.getElementById('up').style.display = 'block';
+    document.getElementById('down').style.display = 'block';
+});
